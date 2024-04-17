@@ -67,7 +67,7 @@ pipeline {
                     Build Number: ${env.BUILD_NUMBER}
                 """,
                 attachLog: true,
-                to: 'your.email@example.com'
+                to: 'darshp958@gmail.com'
             )
         }
         failure {
@@ -84,7 +84,7 @@ pipeline {
                     Build Number: ${env.BUILD_NUMBER}
                 """,
                 attachLog: true,
-                to: 'your.email@example.com'
+                to: 'darshp958@gmail.com'
             )
         }
     }
