@@ -57,7 +57,7 @@ pipeline {
         }
     }
 
-    post {
+        post {
         always {
             emailext (
                 subject: "Pipeline Status: ${currentBuild.currentResult}",
@@ -67,13 +67,13 @@ pipeline {
                     Build Number: ${env.BUILD_NUMBER}
                 """,
                 attachLog: true,
-                to: 'darshp958@gmail.com'
+                to: 'your.email@example.com'
             )
         }
         failure {
             when {
-                stagePredicate {
-                    return (it.name == 'Unit and Integration Tests' || it.name == 'Security Scan')
+                expression {
+                    it.name == 'Unit and Integration Tests' || it.name == 'Security Scan'
                 }
             }
             emailext (
@@ -84,8 +84,9 @@ pipeline {
                     Build Number: ${env.BUILD_NUMBER}
                 """,
                 attachLog: true,
-                to: 'darshp958@gmail.com'
+                to: 'your.email@example.com'
             )
         }
     }
+
 }
